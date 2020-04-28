@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container-fluid bg-dark">
+	<div class="container-fluid" id="bg-color">
 	    <div class="row" style="height: 100vh">
 			<ul class="box-areaHidden" id="box-area">
 				<li id="heart"></li>
@@ -23,8 +23,8 @@
 		    <div id="col" class="col-md-6 my-auto mx-auto text-light">
 		        <h6 class="animated fadeInDown" id="tanggal"></h6>
 		        <h1 class="text-center animated zoomIn" id="waktu"></h1>
-		        <span class="left animated fadeInLeft" style="float: left;" id="TeksKiri"></span>
-		        <span class="right animated fadeInRight" style="float: right;" id="TeksKanan"></span>
+		        <span class="left animated fadeIn" style="float: left;" id="TeksKiri"></span>
+		        <span class="right animated fadeInUp" style="float: right;" id="TeksKanan"></span>
 		    </div>
 			<div id="music"></div>
 	    </div>
@@ -74,6 +74,9 @@
 <script type="text/javascript">
 	var text1="";
 	var today = new Date();
+	// var curr_hour = 20;
+	// var curr_day = 10;
+	// var curr_month = 5;
 	var curr_hour = today.getHours();
 	var curr_day = today.getDay();
 	var curr_month = today.getMonth();
@@ -83,17 +86,30 @@
 		document.getElementById('box-area').className="box-area";
 		typingAnimation();
 	}
-	else if (curr_hour < 11) {
-		text1="Good Morning";
+	else if (curr_hour < 4) {
+		text1="Have a Good Night";
+		document.getElementById('bg-color').classList.add('bg-midnight');
 	}
-	else if(curr_hour < 15){
-		text1="Good Afternoon";
+	else if(curr_hour < 11){
+		text1="Good Morning You";
+		if (curr_hour < 7) {document.getElementById('bg-color').classList.add('bg-morning');}
+		else{document.getElementById('bg-color').classList.add('bg-noon');}
 	}
-	else if(curr_hour < 19){
-		text1="Good Evening";
+	else if(curr_hour < 14){
+		text1="Be Happy Today";
+		document.getElementById('bg-color').classList.add('bg-noon');
+	}
+	else if(curr_hour < 17){
+		text1="Good Afternoon Dear";
+		document.getElementById('bg-color').classList.add('bg-afternoon');
+	}
+	else if(curr_hour < 20){
+		text1="Good Afternoon, Take a Rest";
+		document.getElementById('bg-color').classList.add('bg-night');
 	}
 	else if(curr_hour < 24){
-		text1="Good Night";
+		text1="Time to Sleep, Good Night";
+		document.getElementById('bg-color').classList.add('bg-midnight');
 	}
 	document.getElementById('TeksKiri').innerHTML= text1;
 	function typingAnimation(){
@@ -113,57 +129,155 @@
 	}
 </script>
 <script type="text/javascript">
-		var text2=[
-		'Ayo Bangun',
-		'Jangan lupa sarapan',
-		'Mandi loh',
-		'Makan siangnya jangan lupa',
-		'Kalo ngantuk tidur',
-		'Olahraga biar sehat',
-		'Mandi loh',
-		'Jangan lupa makan malam',
-		'Tidur nyenyak',
-		'Sampai Besok'];
-		var max;
-		var min;
 		var today = new Date();
 		var curr_hour = today.getHours();
+		var curr_minute = today.getMinutes();
 		var curr_day = today.getDay();
 		var curr_month = today.getMonth();
 
 		if(curr_day == 10 && curr_month == 5){
 			document.getElementById("TeksKanan").innerHTML = "";
 		}
-		else if (curr_hour >= 4 && curr_hour < 11) {
-			min=0;
-			max=3;
-			textSequence(0);
+		else if(curr_hour >18 && curr_hour <22){
+			malam(0);
 		}
-		else if(curr_hour >= 11 && curr_hour < 15){
-			min=3;
-			max=5;
-			textSequence(3);
+		else if(curr_hour < 2){
+			document.getElementById("TeksKanan").innerHTML = "";
 		}
-		else if(curr_hour >= 15 && curr_hour < 18){
-			min=5;
-			max=7;
-			textSequence(5);
+		else if (curr_hour < 4) {
+			sahur(0);
 		}
-		else if(curr_hour >= 18 && curr_hour < 24){
-			min=7;
-			max=10;
-			textSequence(7);
+		else if(curr_hour == 4){
+			imsak(0);
 		}
-		function textSequence(i) {
-
-	        if (max > i) {
+		else if(curr_hour < 11){
+			pagi(0);
+		}
+		else if(curr_hour < 14){
+			siang(0);
+		}
+		else if(curr_hour <= 17 && curr_minute < 20){
+			sore(0);
+		}
+		else if(curr_hour >= 17 && curr_minute >= 20){
+			buka(0);
+		}
+		function sahur(i) {
+			var text2=[
+				"Hayo bangun sahur",
+				"Makan yang banyak",
+				"Minum air putih jangan lupa"
+			];
+	        if (text2.length > i) {
 	            setTimeout(function() {
 	                document.getElementById("TeksKanan").innerHTML = text2[i];
-	                textSequence(++i);
+	                sahur(++i);
 	            }, 3000); // (in milliseconds)
 
-	        } else if (max == i) {
-	            textSequence(min);
+	        } else if (text2.length == i) {
+	            sahur(0);
+	        }
+
+	    }
+	    function imsak(i) {
+			var text2=[
+				"Udah imsak jagan langsung tidur",
+				"Sholat subuh dulu, baru tidur"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                imsak(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            imsak(0);
+	        }
+
+	    }
+	    function pagi(i) {
+			var text2=[
+				"Bangun dong",
+				"Masih pagi, puasanya jangan batal",
+				"Mandi lho"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                pagi(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            pagi(0);
+	        }
+
+	    }
+	    function siang(i) {
+			var text2=[
+				"Jangan lupa sholat",
+				"Kalo cape tidur",
+				"Yang kuat puasanya"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                siang(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            siang(0);
+	        }
+
+	    }
+	    function sore(i) {
+			var text2=[
+			"Olahraga biar sehat",
+			"Ngabuburit sana, tapi jangan sampe batal",
+			"Mandi biar ga bauk"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                sore(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            sore(0);
+	        }
+
+	    }
+	    function buka(i) {
+			var text2=[
+			"Selamat berbuka",
+			"Makan yang manis-manis",
+			"Sholat maghrib jangan lupa"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                buka(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            buka(0);
+	        }
+
+	    }
+	    function malam(i) {
+			var text2=[
+			"Taraweh yaa",
+			"Kalo bisa lanjut tadarus",
+			"Tidurnya nyenyak",
+			"Mimpi indah"
+			];
+	        if (text2.length > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                malam(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (text2.length == i) {
+	            malam(0);
 	        }
 
 	    }

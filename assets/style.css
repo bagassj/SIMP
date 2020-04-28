@@ -2,31 +2,64 @@
 	position: absolute;
 	width: 100%;
 }
+.bg-afternoon{
+	background: rgb(255,200,55);
+	background: -webkit-linear-gradient(bottom left, rgba(255,200,55,1) 0%, rgba(255,128,8,1) 100%);
+	background: -o-linear-gradient(bottom left, rgba(255,200,55,1) 0%, rgba(255,128,8,1) 100%);
+	background: linear-gradient(to top right, rgba(255,200,55,1) 0%, rgba(255,128,8,1) 100%);
+}
+.bg-noon{
+	background: rgb(145,234,228);
+	background: -webkit-linear-gradient(bottom left, rgba(145,234,228,1) 0%, rgba(134,168,231,1) 100%);
+	background: -o-linear-gradient(bottom left, rgba(145,234,228,1) 0%, rgba(134,168,231,1) 100%);
+	background: linear-gradient(to top right, rgba(145,234,228,1) 0%, rgba(134,168,231,1) 100%);
+}
+.bg-morning{
+	background: rgb(246,211,101);
+	background: -webkit-linear-gradient(bottom left, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
+	background: -o-linear-gradient(bottom left, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
+	background: linear-gradient(to top right, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
+}
+.bg-night{
+	background-image: linear-gradient(to top right, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 65%, #0c1db8 76%, #020f75 90%);
+}
+.bg-midnight{
+	background-color: #2b4162;
+	background-image: -webkit-linear-gradient(bottom left, #2b4162 0%, #12100e 74%);
+	background-image: -o-linear-gradient(bottom left, #2b4162 0%, #12100e 74%);
+	background-image: linear-gradient(to top right, #2b4162 0%, #12100e 74%);
+}
 h6{
 	font-family: 'Poppins', sans-serif;
-	font-weight: 100;
-	color: rgba(255,255,255,0.5);
+	font-weight: 400;
 	letter-spacing: 8px;
+	color: #ecf0f1;
 }
 h1{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 900;
-	font-size: 100px;
+	font-size: 115px;
 	letter-spacing: 5px;
+	color: #ecf0f1;
 }
 .left{
+	width: 100%;
+	text-align: center;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 900;
 	font-size: 30px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
+	color: #ecf0f1;
 }
 .right{
+	width: 100%;
+	text-align: center;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
-	color: #f1c40f;
 	letter-spacing: 1px;
+	color: #ecf0f1;
 }
 .box-areaHidden{
 	display: none;
@@ -162,6 +195,9 @@ h1{
   and (max-device-width: 1024px) 
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 1) {
+  	h1{
+		font-size: 90px;
+	}
   	.left{
   		width: 100%;
   		text-align: center;
@@ -175,17 +211,6 @@ h1{
 	  	animation-delay: 3s;
 		animation-duration: 3s;
 		animation-iteration-count: infinite;
-	}
-	@keyframes fadeInUp {
-	  from {
-	    opacity: 0;
-	    transform: translate3d(0, 100%, 0);
-	  }
-
-	  to {
-	    opacity: 1;
-	    transform: none;
-	  }
 	}
 	@keyframes animate{
 		0%{
