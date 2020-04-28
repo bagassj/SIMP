@@ -1,0 +1,200 @@
+.container-fluid{
+	position: absolute;
+	width: 100%;
+}
+h6{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 100;
+	color: rgba(255,255,255,0.5);
+	letter-spacing: 8px;
+}
+h1{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	font-size: 100px;
+	letter-spacing: 5px;
+}
+.left{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+.right{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: #f1c40f;
+	letter-spacing: 1px;
+}
+.box-areaHidden{
+	display: none;
+}
+.box-area{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.box-area li{
+	position: absolute;
+	display: block;
+	list-style: none;
+	width: 100px;
+    height: 90px;
+	animation: animate 10s linear infinite;
+	bottom: -150px;
+}
+#heart:before{
+    position: absolute; 
+    content: ""; 
+    left: 50px; 
+    top: 0; 
+    width: 52px; 
+    height: 80px; 
+    background: rgb(255,255,255);
+    border-radius: 50px 50px 0 0;
+}
+#heart:after{
+    position: absolute; 
+    content: ""; 
+    left: 50px; 
+    top: 0; 
+    width: 52px; 
+    height: 80px; 
+    background: rgb(255,255,255);
+    border-radius: 50px 50px 0 0;
+}
+#heart:before{
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg); 
+        -ms-transform: rotate(-45deg); 
+         -o-transform: rotate(-45deg); 
+            transform: rotate(-45deg); 
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%; 
+        -ms-transform-origin: 0 100%; 
+         -o-transform-origin: 0 100%; 
+            transform-origin: 0 100%;
+}
+#heart:after { 
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg); 
+    -o-transform: rotate(45deg); 
+    transform: rotate(45deg); 
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%; 
+    -ms-transform-origin: 100% 100%; 
+    -o-transform-origin: 100% 100%; 
+    transform-origin :100% 100%; 
+} 
+.box-area li:nth-child(1){
+	left: 10%;
+	animation-delay: 6s;
+}
+.box-area li:nth-child(2){
+	left: 80%;
+	animation-delay: 5s;
+}
+.box-area li:nth-child(3){
+	left: 28%;
+	animation-delay: 3s;
+}
+.box-area li:nth-child(4){
+	left: 50%;
+	animation-delay: 6.5s;
+}
+.box-area li:nth-child(5){
+	left: 55%;
+	animation-delay: 11s;
+}
+.box-area li:nth-child(6){
+	left: 70%;
+	animation-delay: 8s;
+}
+.box-area li:nth-child(7){
+	left: 37%;
+	animation-delay: 9s;
+}
+.box-area li:nth-child(8){
+	left: 16%;
+	animation-delay: 10s;
+}
+
+/*Animasi*/
+
+@keyframes animate{
+	0%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100%{
+		transform: translateY(-300px);
+		opacity: 0;
+	}
+}
+.container-fluid{
+	animation-duration: 3s;
+}
+h6{
+	animation-delay: 3s;
+}
+h1{
+	animation-delay: 3s;
+}
+.left{
+	animation-delay: 3s;
+}
+.right{
+	animation-delay: 3s;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+@media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  	.left{
+  		width: 100%;
+  		text-align: center;
+		font-size: 40px;
+	}
+	.right{
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+	  	animation-name: fadeInUp;
+	  	animation-delay: 3s;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+	}
+	@keyframes fadeInUp {
+	  from {
+	    opacity: 0;
+	    transform: translate3d(0, 100%, 0);
+	  }
+
+	  to {
+	    opacity: 1;
+	    transform: none;
+	  }
+	}
+	@keyframes animate{
+		0%{
+			transform: translateY(0);
+			opacity: 1;
+		}
+		100%{
+			transform: translateY(-500px);
+			opacity: 0;
+		}
+	}
+}

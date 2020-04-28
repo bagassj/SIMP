@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waktu</title>
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid bg-dark">
+	    <div class="row" style="height: 100vh">
+			<ul class="box-areaHidden" id="box-area">
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+				<li id="heart"></li>
+			</ul>
+		    <div id="col" class="col-md-6 my-auto mx-auto text-light">
+		        <h6 class="animated fadeInDown" id="tanggal"></h6>
+		        <h1 class="text-center animated zoomIn" id="waktu"></h1>
+		        <span class="left animated fadeInLeft" style="float: left;" id="TeksKiri"></span>
+		        <span class="right animated fadeInRight" style="float: right;" id="TeksKanan"></span>
+		    </div>
+			<div id="music"></div>
+	    </div>
+	</div>
+</body>
+<script src="assets/jquery/jquery-3.2.1.min.js"></script>
+<script src="assets/bootstrap/js/popper.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	<!--
+	function showTime() {
+	    var today = new Date();
+	    var curr_hour = today.getHours();
+	    var curr_minute = today.getMinutes();
+	    var curr_second = today.getSeconds();
+	    
+	    curr_hour = checkTime(curr_hour);
+	    curr_minute = checkTime(curr_minute);
+	    curr_second = checkTime(curr_second);
+	 	document.getElementById('waktu').innerHTML=curr_hour + ":" + curr_minute + ":" + curr_second;
+	    }
+
+	function checkTime(i) {
+	    if (i < 10) {
+	        i = "0" + i;
+	    }
+	    return i;
+	}
+	setInterval(showTime, 1000);
+	//-->
+</script>
+<script type='text/javascript'>
+	<!--
+	var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+	var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+	var date = new Date();
+	var day = date.getDate();
+	var month = date.getMonth();
+	var thisDay = date.getDay(),
+	    thisDay = myDays[thisDay];
+	var yy = date.getYear();
+	var year = (yy < 1000) ? yy + 1900 : yy;
+	document.getElementById('tanggal').innerHTML=thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
+	//-->
+</script>
+<script type="text/javascript">
+	var text1="";
+	var today = new Date();
+	var curr_hour = today.getHours();
+	var curr_day = today.getDay();
+	var curr_month = today.getMonth();
+	
+	if(curr_day == 10 && curr_month == 5){
+		document.getElementById('TeksKiri').classList.remove('fadeInLeft');
+		document.getElementById('box-area').className="box-area";
+		typingAnimation();
+	}
+	else if (curr_hour < 11) {
+		text1="Good Morning";
+	}
+	else if(curr_hour < 15){
+		text1="Good Afternoon";
+	}
+	else if(curr_hour < 19){
+		text1="Good Evening";
+	}
+	else if(curr_hour < 24){
+		text1="Good Night";
+	}
+	document.getElementById('TeksKiri').innerHTML= text1;
+	function typingAnimation(){
+		var charText='Happy Birthday';
+		var i = 0;
+		var speed = 50;
+
+		setTimeout(
+		function typeWriter(){
+			if (i < charText.length) {
+				document.getElementById('TeksKiri').innerHTML += charText.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+			}
+		}
+		, 3500);
+	}
+</script>
+<script type="text/javascript">
+		var text2=[
+		'Ayo Bangun',
+		'Jangan lupa sarapan',
+		'Mandi loh',
+		'Makan siangnya jangan lupa',
+		'Kalo ngantuk tidur',
+		'Olahraga biar sehat',
+		'Mandi loh',
+		'Jangan lupa makan malam',
+		'Tidur nyenyak',
+		'Sampai Besok'];
+		var max;
+		var min;
+		var today = new Date();
+		var curr_hour = today.getHours();
+		var curr_day = today.getDay();
+		var curr_month = today.getMonth();
+
+		if(curr_day == 10 && curr_month == 5){
+			document.getElementById("TeksKanan").innerHTML = "";
+		}
+		else if (curr_hour >= 4 && curr_hour < 11) {
+			min=0;
+			max=3;
+			textSequence(0);
+		}
+		else if(curr_hour >= 11 && curr_hour < 15){
+			min=3;
+			max=5;
+			textSequence(3);
+		}
+		else if(curr_hour >= 15 && curr_hour < 18){
+			min=5;
+			max=7;
+			textSequence(5);
+		}
+		else if(curr_hour >= 18 && curr_hour < 24){
+			min=7;
+			max=10;
+			textSequence(7);
+		}
+		function textSequence(i) {
+
+	        if (max > i) {
+	            setTimeout(function() {
+	                document.getElementById("TeksKanan").innerHTML = text2[i];
+	                textSequence(++i);
+	            }, 3000); // (in milliseconds)
+
+	        } else if (max == i) {
+	            textSequence(min);
+	        }
+
+	    }
+</script>
+</html>
