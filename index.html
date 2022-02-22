@@ -7,8 +7,10 @@
     <title>SIMP</title>
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap');
     *{
+        font-family: 'Open Sans', sans-serif;
+        color: #2f3640;;
         padding: 0;
         margin: 0;
     }
@@ -28,16 +30,23 @@
         font-size: 28pt;
         font-weight: 800;
         word-spacing: 3px;
+        margin-left: 2px;
+    }
+    small{
+        font-size: 8pt;
+        font-weight: 300;
+        background: #2f3640;
+        word-spacing: -20px;
     }
     h1:hover span{
         font-family: 'Open Sans', sans-serif;
         color: #b33939;
     }
-    h1::before {  
+    h1::before{  
         transform: scaleX(0);
         transform-origin: bottom right;
     }
-    h1:hover::before {
+    h1:hover::before{
         transform: scaleX(1);
         transform-origin: bottom left;
     }
@@ -45,7 +54,7 @@
         color: #DCDDE1;
         text-decoration: none;
     }
-    h1::before {
+    h1::before{
         content: " ";
         display: block;
         position: absolute;
@@ -55,6 +64,15 @@
         z-index: -1;
         transition: transform .4s ease;
     }
+    small:hover ~ h1{
+        display: none;
+    }
+    small:hover{
+        font-size: 28pt;
+        font-weight: 800;
+        background: transparent;
+        word-spacing: 0px;
+    } 
     @media only screen and (max-width: 768px) {
         h1{
             font-size: 20pt;
@@ -74,6 +92,8 @@
     }
 </style>
 <body>
-    <h1><span>I</span> AM <span>L</span>UCKY T<span>O</span> HA<span>V</span>E A FRI<span>E</span>ND LIKE <span>YOU</span></h1>
+    <div>
+    <small>NOPE I'M JUST KIDDING LOL</small><br>
+    <h1><span>I</span> AM <span>L</span>UCKY T<span>O</span> HA<span>V</span>E A FRI<span>E</span>ND LIKE <span>YOU</span></h1></div>
 </body>
 </html>
